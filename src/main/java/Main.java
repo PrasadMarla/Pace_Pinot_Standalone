@@ -7,13 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        /*
+
 
         while (true) {
             System.out.println("Do you want to read remote logs. Type Y or N ");
             String readLogs = scanner.nextLine();
             if (readLogs.equalsIgnoreCase("Y")) {
-                *//*System.out.println("Enter the server address");
+                /*System.out.println("Enter the server address");
                 String serverAddr = scanner.nextLine();
                 System.out.println("Enter user name ");
                 String usr = scanner.nextLine();
@@ -24,18 +24,20 @@ public class Main {
                 System.out.println("Enter the output dir");
                 String outDir = scanner.nextLine();
                 System.out.println("Enter path of key if required or enter N");
-                String key = scanner.nextLine();*//*
+                String key = scanner.nextLine();*/
                 System.out.println("Enter the server config file path");
                 String serverFile = scanner.nextLine();
                 System.out.println("Enter the Output Dir");
                 String outDir = scanner.nextLine();
-                RemoteLogCollector.fetchlogs(serverFile, outDir);
+                System.out.println("Enter the public key file path");
+                String keyPath = scanner.nextLine();
+                RemoteLogCollector.fetchlogs(serverFile,outDir,keyPath);
                 //getRemoteLogs(serverAddr, usr, passwd, remoteDir,outDir,key);
             } else {
                 break;
             }
             //writeJSONToFile(metrics);
-        }*/
+        }
         System.out.println("Enter the logs directory based on which you want to calculate cost");
         String path = scanner.next();
         System.out.println("Enter the table names config file");
