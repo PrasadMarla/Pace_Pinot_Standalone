@@ -62,7 +62,7 @@ public class Main {
                 System.out.println("File " + listOfFiles[i].getName());
                 System.out.println(listOfFiles[i].getName().split(".log")[0].split("&")[1]);
                 if(container.containsKey(listOfFiles[i].getName().split(".log")[0].split("&")[1]))
-                    container.get(listOfFiles[i].getName().split(".log")[0]).add(listOfFiles[i].getAbsolutePath());
+                    container.get(listOfFiles[i].getName().split(".log")[0].split("&")[1]).add(listOfFiles[i].getAbsolutePath());
             }
         }
 
