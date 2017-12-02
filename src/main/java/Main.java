@@ -27,7 +27,7 @@ public class Main {
                 String key = scanner.nextLine();*/
                 System.out.println("Enter the server config file path");
                 String serverFile = scanner.nextLine();
-                System.out.println("Enter the Output Dir");
+                System.out.println("Enter the output directory to consolidate logs");
                 String outDir = scanner.nextLine();
                 System.out.println("Enter the public key file path");
                 String keyPath = scanner.nextLine();
@@ -42,7 +42,7 @@ public class Main {
         String path = scanner.next();
         System.out.println("Enter the table names config file");
         String job_path = scanner.next();
-        System.out.println("Enter the Output directory for results");
+        System.out.println("Enter the output file path for results");
         String cost_dir = scanner.next();
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();

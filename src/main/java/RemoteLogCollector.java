@@ -65,8 +65,11 @@ public class RemoteLogCollector {
             e.printStackTrace();
         }
     }
+
+
     public static void main(String args[]){
         Scanner scanner = new Scanner(System.in);
+        // Test Code 
         while (true) {
             System.out.println("Do you want to read remote logs. Type Y or N ");
             String readLogs = scanner.nextLine();
