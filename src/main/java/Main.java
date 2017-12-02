@@ -29,7 +29,7 @@ public class Main {
                 String serverFile = scanner.nextLine();
                 System.out.println("Enter the output directory to consolidate logs");
                 String outDir = scanner.nextLine();
-                System.out.println("Enter the public key file path");
+                System.out.println("Enter the public key file path or N if not required");
                 String keyPath = scanner.nextLine();
                 RemoteLogCollector.fetchlogs(serverFile,outDir,keyPath);
                 //getRemoteLogs(serverAddr, usr, passwd, remoteDir,outDir,key);
@@ -59,16 +59,13 @@ public class Main {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-		System.out.println("File " + listOfFiles[i].getName());	
-                System.out.println(listOfFiles[i].getName().split(".log")[0]);
-		if(container.containsKey(listOfFiles[i].getName().split(".log")[0]))
-                    container.get(listOfFiles[i].getName().split(".log")[0]).add(listOfFiles[i].getAbsolutePath());
                 System.out.println("File " + listOfFiles[i].getName());
+                System.out.println(listOfFiles[i].getName().split(".log")[0].split("&")[1]);
+                if(container.containsKey(listOfFiles[i].getName().split(".log")[0].split("&")[1]))
+                    container.get(listOfFiles[i].getName().split(".log")[0]).add(listOfFiles[i].getAbsolutePath());
             }
         }
 
-        //list.add("D:/l1.txt");
-        //list.add("D:/l2.txt");
         for (String key : container.keySet()) {
             if(!container.get(key).isEmpty())
                 LatencyMetricCalculator.findTableBasedAverages(key,container.get(key),cost_dir);

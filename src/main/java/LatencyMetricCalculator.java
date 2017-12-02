@@ -13,7 +13,12 @@ public class LatencyMetricCalculator {
     final static double BETA = 1;
 
 
-
+    /**
+     * method calculates cost for each table
+     * @param tableName
+     * @param files - associated with a particular table name
+     * @param outFile - Output file with cost calculation
+     */
     public static void findTableBasedAverages(String tableName, List<String> files, String outFile) {
 
         if (files.isEmpty()) {
@@ -96,4 +101,3 @@ public class LatencyMetricCalculator {
         }
     }
 }
-

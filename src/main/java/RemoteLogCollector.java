@@ -14,9 +14,9 @@ public class RemoteLogCollector {
      * @param srvrSSH
      * @param userSSH
      * @param pswdSSH
-     * @param dirPath
-     * @param key
-     * @param outDir
+     * @param dirPath - source log directory
+     * @param key - public key file path
+     * @param outDir - Destination directory path
      */
     public static void getRemoteLogs(String srvrSSH, String userSSH, String pswdSSH, String dirPath,String key,String outDir) {
         com.jcraft.jsch.Session session = null;
@@ -37,7 +37,7 @@ public class RemoteLogCollector {
             sftp.cd(dirPath);
             List<ChannelSftp.LsEntry> list = sftp.ls("*");
             for (ChannelSftp.LsEntry entry : list) {
-                sftp.get(entry.getFilename(),outDir+entry.getFilename());
+                sftp.get(entry.getFilename(),outDir+srvrSSH+"&"+entry.getFilename());
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -52,12 +52,19 @@ public class RemoteLogCollector {
 
     }
 
+    /**
+     *
+     * @param configFile - server realted info.
+     * @param outDir - Destination log path
+     * @param keyPath - public key path.
+     */
+
     public static void fetchlogs(String configFile, String outDir,String keyPath){
         String line = null;
         try (BufferedReader br = new BufferedReader(new FileReader(configFile))) {
 
             while ((line = br.readLine()) != null) {
-               String[] info = line.split(",");
+                String[] info = line.split(",");
                 getRemoteLogs(info[0], info[1], info[2], info[3],keyPath,outDir);
             }
 
