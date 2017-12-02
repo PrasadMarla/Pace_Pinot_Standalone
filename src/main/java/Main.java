@@ -59,8 +59,10 @@ public class Main {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if(container.containsKey(listOfFiles[i].getName().split("_")[0]))
-                    container.get(listOfFiles[i].getName().split("_")[0]).add(listOfFiles[i].getAbsolutePath());
+		System.out.println("File " + listOfFiles[i].getName());	
+                System.out.println(listOfFiles[i].getName().split(".log")[0]);
+		if(container.containsKey(listOfFiles[i].getName().split(".log")[0]))
+                    container.get(listOfFiles[i].getName().split(".log")[0]).add(listOfFiles[i].getAbsolutePath());
                 System.out.println("File " + listOfFiles[i].getName());
             }
         }

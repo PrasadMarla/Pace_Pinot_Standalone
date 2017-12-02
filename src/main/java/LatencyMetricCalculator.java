@@ -86,7 +86,7 @@ public class LatencyMetricCalculator {
     }
 
     public static void  writeToFile(String filePath, String logLine){
-        try(FileWriter fw = new FileWriter("myfile.txt", true);
+        try(FileWriter fw = new FileWriter(filePath, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
         {
